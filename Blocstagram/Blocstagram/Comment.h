@@ -15,5 +15,8 @@
 
 @property (nonatomic, strong) User *from;
 @property (nonatomic, strong) NSString *text;
+@property BOOL topComment;
+
+
 
 @end

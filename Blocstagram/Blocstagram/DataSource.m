@@ -11,6 +11,7 @@
 #import "Media.h"
 #import "Comment.h"
 
+
 @interface DataSource ()
 
 @property (nonatomic, strong) NSArray *mediaItems;
@@ -56,8 +57,13 @@
             
             for (int i  = 0; i <= commentCount; i++) {
                 Comment *randomComment = [self randomComment];
+                if (i == 0) {
+                    randomComment.topComment = TRUE;
+                }
+                
                 [randomComments addObject:randomComment];
                 }
+            
             
             media.comments = randomComments;
             

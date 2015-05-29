@@ -27,6 +27,7 @@
 		FAEF57171B1785AB007EDEC8 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57161B1785AB007EDEC8 /* Media.m */; };
 		FAEF571A1B1786EB007EDEC8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57191B1786EB007EDEC8 /* Comment.m */; };
 		FAEF571D1B1787E4007EDEC8 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF571C1B1787E4007EDEC8 /* DataSource.m */; };
+		FAEF57201B17A5D5007EDEC8 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF571F1B17A5D5007EDEC8 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		FAEF57191B1786EB007EDEC8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		FAEF571B1B1787E4007EDEC8 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		FAEF571C1B1787E4007EDEC8 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		FAEF571E1B17A5D5007EDEC8 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
+		FAEF571F1B17A5D5007EDEC8 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */,
 				FAEF57151B1785AB007EDEC8 /* Media.h */,
 				FAEF57161B1785AB007EDEC8 /* Media.m */,
+				FAEF571E1B17A5D5007EDEC8 /* MediaTableViewCell.h */,
+				FAEF571F1B17A5D5007EDEC8 /* MediaTableViewCell.m */,
 				FAEF57121B178324007EDEC8 /* User.h */,
 				FAEF57131B178324007EDEC8 /* User.m */,
 				FADA8D4E1B16B5380097EA0D /* Images.xcassets */,
@@ -285,6 +290,7 @@
 			files = (
 				FAEF57141B178324007EDEC8 /* User.m in Sources */,
 				FAEF571A1B1786EB007EDEC8 /* Comment.m in Sources */,
+				FAEF57201B17A5D5007EDEC8 /* MediaTableViewCell.m in Sources */,
 				FAEF57171B1785AB007EDEC8 /* Media.m in Sources */,
 				FADA8D471B16B5380097EA0D /* AppDelegate.m in Sources */,
 				FAEF571D1B1787E4007EDEC8 /* DataSource.m in Sources */,
