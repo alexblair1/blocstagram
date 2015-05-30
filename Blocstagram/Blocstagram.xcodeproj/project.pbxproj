@@ -23,6 +23,7 @@
 		FADA8D7A1B16B6070097EA0D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADA8D701B16B6070097EA0D /* 9.jpg */; };
 		FADA8D7B1B16B6070097EA0D /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADA8D711B16B6070097EA0D /* 10.jpg */; };
 		FADA8D7E1B16B6530097EA0D /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */; };
+		FAE90A881B1A705000F2F6A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE90A871B1A705000F2F6A3 /* LoginViewController.m */; };
 		FAEF57141B178324007EDEC8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57131B178324007EDEC8 /* User.m */; };
 		FAEF57171B1785AB007EDEC8 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57161B1785AB007EDEC8 /* Media.m */; };
 		FAEF571A1B1786EB007EDEC8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57191B1786EB007EDEC8 /* Comment.m */; };
@@ -63,6 +64,8 @@
 		FADA8D711B16B6070097EA0D /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		FADA8D7C1B16B6530097EA0D /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
 		FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		FAE90A861B1A705000F2F6A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		FAE90A871B1A705000F2F6A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FAEF57121B178324007EDEC8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		FAEF57131B178324007EDEC8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FAEF57151B1785AB007EDEC8 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				FAEF571C1B1787E4007EDEC8 /* DataSource.m */,
 				FADA8D7C1B16B6530097EA0D /* ImagesTableViewController.h */,
 				FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */,
+				FAE90A861B1A705000F2F6A3 /* LoginViewController.h */,
+				FAE90A871B1A705000F2F6A3 /* LoginViewController.m */,
 				FAEF57151B1785AB007EDEC8 /* Media.h */,
 				FAEF57161B1785AB007EDEC8 /* Media.m */,
 				FAEF571E1B17A5D5007EDEC8 /* MediaTableViewCell.h */,
@@ -293,6 +298,7 @@
 				FAEF57201B17A5D5007EDEC8 /* MediaTableViewCell.m in Sources */,
 				FAEF57171B1785AB007EDEC8 /* Media.m in Sources */,
 				FADA8D471B16B5380097EA0D /* AppDelegate.m in Sources */,
+				FAE90A881B1A705000F2F6A3 /* LoginViewController.m in Sources */,
 				FAEF571D1B1787E4007EDEC8 /* DataSource.m in Sources */,
 				FADA8D441B16B5380097EA0D /* main.m in Sources */,
 				FADA8D7E1B16B6530097EA0D /* ImagesTableViewController.m in Sources */,
