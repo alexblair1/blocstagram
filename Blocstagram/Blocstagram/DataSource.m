@@ -31,7 +31,7 @@
 #pragma mark client ID
 
 + (NSString *) instagramClientID {
-    return @"<#18ab3720f42348469a99ab1a4dc7da62#>";
+    return @"18ab3720f42348469a99ab1a4dc7da62";
 }
 
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {

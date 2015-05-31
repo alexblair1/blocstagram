@@ -20,7 +20,7 @@
 NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewControllerDidGetAccessTokenNotification";
 
 - (NSString *) redirectURI{
-    return @"<#http://blairgraphix.com/instagram_access/#>";
+    return @"http://blairgraphix.com/instagram_access/";
 }
 
 - (void)loadView {
@@ -34,6 +34,13 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"back", @"")
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(goBack)];
+    
+    self.navigationItem.leftBarButtonItem = backButton;
     
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
@@ -96,7 +103,9 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     return YES;
     }
 
-
+- (void) goBack {
+    [self.webView goBack];
+}
 
 /*
 #pragma mark - Navigation
