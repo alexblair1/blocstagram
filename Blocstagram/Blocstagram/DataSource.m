@@ -28,6 +28,8 @@
 
 @implementation DataSource
 
+
+
 #pragma mark client ID
 
 + (NSString *) instagramClientID {
@@ -130,11 +132,11 @@
         self.accessToken = note.object;
         
         // Got a token; populate the initial data
-        [self populateDataWithParameters:nil];
+        [self populateDataWithParameters:nil completionHandler:nil];
         }];
     }
 
-- (void) populateDataWithParameters:(NSDictionary *)parameters {
+- (void) populateDataWithParameters:(NSDictionary *)parameters completionHandler:(NewItemCompletionBlock)completionHandler {
     if (self.accessToken) {
         // only try to get the data if there's an access token
         
@@ -146,6 +148,8 @@
             for (NSString *parameterName in parameters) {
                 // for example, if dictionary contains {count: 50}, append `&count=50` to the URL
                 [urlString appendFormat:@"&%@=%@", parameterName, parameters[parameterName]];
+                
+                
             }
             
             NSURL *url = [NSURL URLWithString:urlString];
@@ -157,13 +161,26 @@
                 NSError *webError;
                 NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&webError];
                 
-                NSError *jsonError;
-                NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
-                
-                if (feedDictionary) {
+                if (responseData) {
+                    NSError *jsonError;
+                    NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+                    
+                    if (feedDictionary) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            // done networking, go back on the main thread
+                            [self parseDataFromFeedDictionary:feedDictionary fromRequestWithParameters:parameters];
+                            if (completionHandler) {
+                                completionHandler(nil);
+                            }
+                        });
+                    } else if (completionHandler) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionHandler(jsonError);
+                        });
+                    }
+                } else if (completionHandler) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        // done networking, go back on the main thread
-                        [self parseDataFromFeedDictionary:feedDictionary fromRequestWithParameters:parameters];
+                        completionHandler(webError);
                     });
                 }
             }
@@ -171,9 +188,55 @@
     }
 }
 
-- (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
-    NSLog(@"%@", feedDictionary);
+#pragma mark - Downloading Images
+
+- (void) downloadImageForMediaItem:(Media *)mediaItem {
+    if (mediaItem.mediaURL && !mediaItem.image) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURLRequest *request = [NSURLRequest requestWithURL:mediaItem.mediaURL];
+            
+            NSURLResponse *response;
+            NSError *error;
+            NSData *imageData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            if (imageData) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                
+                if (image) {
+                    mediaItem.image = image;
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+                        NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
+                        [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
+                    });
+                }
+            } else {
+                NSLog(@"Error downloading image: %@", error);
+            }
+        });
+    }
 }
+
+- (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
+    NSArray *mediaArray = feedDictionary[@"data"];
+    
+    NSMutableArray *tmpMediaItems = [NSMutableArray array];
+    
+    for (NSDictionary *mediaDictionary in mediaArray) {
+        Media *mediaItem = [[Media alloc] initWithDictionary:mediaDictionary];
+        
+        if (mediaItem) {
+            [tmpMediaItems addObject:mediaItem];
+            [self downloadImageForMediaItem:mediaItem];
+            }
+        }
+    
+    [self willChangeValueForKey:@"mediaItems"];
+    self.mediaItems = tmpMediaItems;
+    [self didChangeValueForKey:@"mediaItems"];
+}
+
 
 
 //- (void) addRandomData {

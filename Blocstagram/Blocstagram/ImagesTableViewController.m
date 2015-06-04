@@ -19,6 +19,17 @@
 
 @implementation ImagesTableViewController
 
+#pragma mark - Rough Height estimate for scrolling into view
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    if (item.image) {
+        return 350;
+    } else {
+        return 150;
+    }
+}
+
 - (void) infiniteScrollIfNecessary {
     // #3
     NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];

@@ -31,6 +31,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     self.view = webView;
 }
 
+- (void) goBack {
+    [self.webView goBack];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,12 +45,6 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
                                                                   action:@selector(goBack)];
     
     self.navigationItem.leftBarButtonItem = backButton;
-    
-    UIWebView *webView = [[UIWebView alloc] init];
-    webView.delegate = self;
-    
-    [self.view addSubview:webView];
-    self.webView = webView;
     
     self.title = NSLocalizedString(@"Login", @"Login");
     
@@ -103,9 +101,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     return YES;
     }
 
-- (void) goBack {
-    [self.webView goBack];
-}
+
 
 /*
 #pragma mark - Navigation
