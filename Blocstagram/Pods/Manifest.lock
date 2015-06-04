@@ -1,0 +1,10 @@
+PODS:
+  - UICKeyChainStore (2.0.5)
+
+DEPENDENCIES:
+  - UICKeyChainStore
+
+SPEC CHECKSUMS:
+  UICKeyChainStore: a389515ca090d4d49780fd563fec961571caa92b
+
+COCOAPODS: 0.37.2
