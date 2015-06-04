@@ -10,6 +10,8 @@
 	<string>Blocstagram</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>31D48A75DCAC7EE9D2E2A188DC8C109227C87642</key>
+		<string>https://github.com/alexblair1/bloc.git</string>
 		<key>8C45FF8DE2B3BCD03309D67A28370AF04EEA4F60</key>
 		<string>github.com:alexblair1/blocstagram.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Blocstagram/Blocstagram.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>31D48A75DCAC7EE9D2E2A188DC8C109227C87642</key>
+		<string>../../../../..</string>
 		<key>8C45FF8DE2B3BCD03309D67A28370AF04EEA4F60</key>
 		<string>../../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>8C45FF8DE2B3BCD03309D67A28370AF04EEA4F60</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>31D48A75DCAC7EE9D2E2A188DC8C109227C87642</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

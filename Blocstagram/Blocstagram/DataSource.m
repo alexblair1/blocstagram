@@ -24,6 +24,8 @@
 
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
 
+@property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
+
 @end
 
 @implementation DataSource
@@ -37,20 +39,27 @@
 }
 
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
-    if (self.isLoadingOlderItems == NO) {
+    if (self.isLoadingOlderItems == NO && self.thereAreNoMoreOlderMessages == NO) {
         self.isLoadingOlderItems = YES;
         
-        //TODO: Add images 
+        NSString *maxID = [[self.mediaItems lastObject] idNumber];
+        NSDictionary *parameters;
         
-        self.isLoadingOlderItems = NO;
-        
-        if (completionHandler) {
-            completionHandler(nil);
+        if (maxID) {
+            parameters = @{@"max_id": maxID};
             }
-        }
+        
+        [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
+            self.isLoadingOlderItems = NO;
+            if (completionHandler) {
+                completionHandler(error);
+                }
+            }];
     }
+}
 
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
+    self.thereAreNoMoreOlderMessages = NO;
     // #1
     if (self.isRefreshing == NO) {
         self.isRefreshing = YES;
@@ -232,9 +241,29 @@
             }
         }
     
-    [self willChangeValueForKey:@"mediaItems"];
-    self.mediaItems = tmpMediaItems;
-    [self didChangeValueForKey:@"mediaItems"];
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    
+    if (parameters[@"min_id"]) {
+        // This was a pull-to-refresh request
+        
+        NSRange rangeOfIndexes = NSMakeRange(0, tmpMediaItems.count);
+        NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
+        
+        [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
+    } else if (parameters[@"max_id"]) {
+        // This was an infinite scroll request
+        
+        if (tmpMediaItems.count == 0) {
+            // disable infinite scroll, since there are no more older messages
+            self.thereAreNoMoreOlderMessages = YES;
+            } else {
+                [mutableArrayWithKVO addObjectsFromArray:tmpMediaItems];
+            }
+        } else {
+            [self willChangeValueForKey:@"mediaItems"];
+            self.mediaItems = tmpMediaItems;
+            [self didChangeValueForKey:@"mediaItems"];
+        }
 }
 
 
