@@ -24,6 +24,8 @@
 		FADA8D7A1B16B6070097EA0D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADA8D701B16B6070097EA0D /* 9.jpg */; };
 		FADA8D7B1B16B6070097EA0D /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADA8D711B16B6070097EA0D /* 10.jpg */; };
 		FADA8D7E1B16B6530097EA0D /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */; };
+		FADEBF6C1B22138900932D95 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADEBF6B1B22138900932D95 /* MediaFullScreenViewController.m */; };
+		FADEBF751B2257E500932D95 /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FADEBF741B2257E500932D95 /* ShareUtility.m */; };
 		FAE90A881B1A705000F2F6A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE90A871B1A705000F2F6A3 /* LoginViewController.m */; };
 		FAEF57141B178324007EDEC8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57131B178324007EDEC8 /* User.m */; };
 		FAEF57171B1785AB007EDEC8 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEF57161B1785AB007EDEC8 /* Media.m */; };
@@ -68,6 +70,10 @@
 		FADA8D711B16B6070097EA0D /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
 		FADA8D7C1B16B6530097EA0D /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
 		FADA8D7D1B16B6530097EA0D /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
+		FADEBF6A1B22138900932D95 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		FADEBF6B1B22138900932D95 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
+		FADEBF731B2257E500932D95 /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
+		FADEBF741B2257E500932D95 /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
 		FAE90A861B1A705000F2F6A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		FAE90A871B1A705000F2F6A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		FAEF57121B178324007EDEC8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -153,8 +159,12 @@
 				FAE90A871B1A705000F2F6A3 /* LoginViewController.m */,
 				FAEF57151B1785AB007EDEC8 /* Media.h */,
 				FAEF57161B1785AB007EDEC8 /* Media.m */,
+				FADEBF6A1B22138900932D95 /* MediaFullScreenViewController.h */,
+				FADEBF6B1B22138900932D95 /* MediaFullScreenViewController.m */,
 				FAEF571E1B17A5D5007EDEC8 /* MediaTableViewCell.h */,
 				FAEF571F1B17A5D5007EDEC8 /* MediaTableViewCell.m */,
+				FADEBF731B2257E500932D95 /* ShareUtility.h */,
+				FADEBF741B2257E500932D95 /* ShareUtility.m */,
 				FAEF57121B178324007EDEC8 /* User.h */,
 				FAEF57131B178324007EDEC8 /* User.m */,
 				FADA8D671B16B5EB0097EA0D /* Images */,
@@ -352,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADEBF6C1B22138900932D95 /* MediaFullScreenViewController.m in Sources */,
 				FAEF57141B178324007EDEC8 /* User.m in Sources */,
 				FAEF571A1B1786EB007EDEC8 /* Comment.m in Sources */,
 				FAEF57201B17A5D5007EDEC8 /* MediaTableViewCell.m in Sources */,
@@ -359,6 +370,7 @@
 				FADA8D471B16B5380097EA0D /* AppDelegate.m in Sources */,
 				FAE90A881B1A705000F2F6A3 /* LoginViewController.m in Sources */,
 				FAEF571D1B1787E4007EDEC8 /* DataSource.m in Sources */,
+				FADEBF751B2257E500932D95 /* ShareUtility.m in Sources */,
 				FADA8D441B16B5380097EA0D /* main.m in Sources */,
 				FADA8D7E1B16B6530097EA0D /* ImagesTableViewController.m in Sources */,
 			);
